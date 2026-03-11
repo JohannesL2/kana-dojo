@@ -510,7 +510,7 @@
     "jlpt": "N4",
     "id": 57,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "japanese": "この問題は思ったより難しくなかった。",
@@ -518,7 +518,7 @@
     "english": "This problem wasn't as hard as I expected.",
     "jlpt": "N3",
     "id": 58,
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
