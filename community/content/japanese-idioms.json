@@ -108,9 +108,15 @@
     "meaning": "Let bygones be bygones. (Set 1)"
   },
   {
-  "japanese": "耳が早い",
-  "romaji": "Mimi ga hayai",
-  "english": "Fast ears",
-  "meaning": "Quick to hear news/gossip. (Set 5)"
-}
+    "japanese": "耳が早い",
+    "romaji": "Mimi ga hayai",
+    "english": "Fast ears",
+    "meaning": "Quick to hear news/gossip. (Set 5)"
+  },
+  {
+    "japanese": "足を引っ張る",
+    "romaji": "Ashi o hipparu",
+    "english": "Pull someone back",
+    "meaning": "Hold someone back. (Set 4)"
+  }
 ]
