@@ -7,7 +7,7 @@
     "note": "Very common in Osaka/Kyoto speech. (Set 1)",
     "id": 1,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "なんでやねん",
@@ -147,7 +147,7 @@
     "note": "Common causal ending. (Set 1)",
     "id": 15,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "いけん",
@@ -157,7 +157,7 @@
     "note": "Prohibitive nuance. (Set 1)",
     "id": 16,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "なんくるないさ",
@@ -167,7 +167,7 @@
     "note": "Famous Okinawan resilience phrase. (Set 1)",
     "id": 17,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "にふぇーでーびる",
@@ -177,7 +177,7 @@
     "note": "Okinawan gratitude expression. (Set 1)",
     "id": 18,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "〜やねん",
@@ -187,7 +187,7 @@
     "note": "Explanatory ending in conversation. (Set 1)",
     "id": 19,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "おおきに",
@@ -197,7 +197,7 @@
     "note": "Traditional gratitude expression. (Set 1)",
     "id": 20,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "ほんま",
@@ -207,7 +207,7 @@
     "note": "Very common in Osaka/Kyoto speech. (Set 2)",
     "id": 21,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "なんでやねん",
@@ -217,7 +217,7 @@
     "note": "Classic comedic retort (tsukkomi). (Set 2)",
     "id": 22,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "めっちゃ",
@@ -227,7 +227,7 @@
     "note": "Now used nationwide. (Set 2)",
     "id": 23,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "あかん",
@@ -237,7 +237,7 @@
     "note": "Used for prohibition/failure. (Set 2)",
     "id": 24,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "〜へん",
@@ -247,7 +247,7 @@
     "note": "Example: 食べへん = 食べない。 (Set 2)",
     "id": 25,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "しばれる",
@@ -257,7 +257,7 @@
     "note": "Used for severe winter cold. (Set 2)",
     "id": 26,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "なまら",
@@ -267,7 +267,7 @@
     "note": "Hokkaido intensifier. (Set 2)",
     "id": 27,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "したっけ",
@@ -277,7 +277,7 @@
     "note": "Transition/goodbye phrase. (Set 2)",
     "id": 28,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "〜ばい",
@@ -297,7 +297,7 @@
     "note": "Reason marker in Kyushu. (Set 2)",
     "id": 30,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "よか",
@@ -307,7 +307,7 @@
     "note": "Common Kyushu replacement. (Set 2)",
     "id": 31,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "でら",
@@ -317,7 +317,7 @@
     "note": "Characteristic Nagoya intensifier. (Set 2)",
     "id": 32,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "〜だがや",
@@ -327,7 +327,7 @@
     "note": "Strong Nagoya marker. (Set 2)",
     "id": 33,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "ぶち",
@@ -336,7 +336,7 @@
     "region": "Yamaguchi/Hiroshima",
     "note": "Regional intensifier. (Set 2)",
     "id": 34,
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
@@ -1187,7 +1187,7 @@
     "note": "Explanatory ending in conversation. (Set 6)",
     "id": 119,
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "dialect": "おおきに",
@@ -1197,6 +1197,6 @@
     "note": "Traditional gratitude expression. (Set 6)",
     "id": 120,
     "issued": false,
-    "completed": false
+    "completed": true
   }
 ]
