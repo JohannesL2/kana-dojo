@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useMemo } from 'react';
-import { ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import {
   CircleArrowLeft,
   RotateCcw,
@@ -12,7 +11,6 @@ import {
   Trophy,
   Activity,
 } from 'lucide-react';
-import { cn } from '@/shared/lib/utils';
 import { useClick } from '@/shared/hooks/generic/useAudio';
 
 interface ClassicSessionSummaryProps {
@@ -71,13 +69,6 @@ export default function ClassicSessionSummary({
     return Math.round((total / (totalTimeMs / 60000)) * 10) / 10;
   }, [total, totalTimeMs]);
 
-  const pieData =
-    total > 0
-      ? [
-          { name: 'correct', value: correct },
-          { name: 'wrong', value: wrong },
-        ]
-      : [{ name: 'empty', value: 1 }];
 
   return (
     <div className='fixed inset-0 z-50 flex h-full w-full flex-col overflow-x-hidden overflow-y-auto bg-(--background-color)'>
@@ -98,34 +89,13 @@ export default function ClassicSessionSummary({
             {/* Accuracy Hero - Col Span 2 */}
             <div className='relative flex flex-col items-center justify-center rounded-[2.5rem] border-2 border-(--main-color)/20 bg-(--background-color) p-6 sm:col-span-2 sm:flex-row sm:gap-12 sm:p-10'>
               <div className='relative flex aspect-square w-full max-w-36 flex-col items-center justify-center sm:max-w-44'>
-                <ResponsiveContainer width='100%' height='100%'>
-                  <PieChart>
-                    <Pie
-                      data={pieData}
-                      cx='50%'
-                      cy='50%'
-                      innerRadius='88%'
-                      outerRadius='100%'
-                      paddingAngle={
-                        total > 0 && correct > 0 && wrong > 0 ? 4 : 0
-                      }
-                      dataKey='value'
-                      stroke='none'
-                      startAngle={90}
-                      endAngle={-270}
-                      isAnimationActive={false}
-                    >
-                      {total > 0 ? (
-                        <>
-                          <Cell fill='var(--main-color)' />
-                          <Cell fill='var(--secondary-color)' opacity={0.3} />
-                        </>
-                      ) : (
-                        <Cell fill='var(--border-color)' opacity={0.2} />
-                      )}
-                    </Pie>
-                  </PieChart>
-                </ResponsiveContainer>
+                <div
+                  className='h-full w-full rounded-full'
+                  style={{
+                    background: `conic-gradient(var(--main-color) 0deg ${accuracy * 3.6}deg, var(--border-color) ${accuracy * 3.6}deg 360deg)`,
+                  }}
+                />
+                <div className='absolute inset-[12%] rounded-full bg-(--background-color)' />
                 <div className='absolute inset-0 flex flex-col items-center justify-center'>
                   <span className='text-4xl font-black tracking-tighter text-(--main-color) sm:text-5xl'>
                     {accuracy}%
@@ -261,3 +231,4 @@ export default function ClassicSessionSummary({
     </div>
   );
 }
+
