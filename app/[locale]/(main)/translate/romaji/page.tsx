@@ -62,7 +62,11 @@ export default async function RomajiPage(_: PageProps) {
     ['ありがとう', 'arigatou', 'Thank you'],
     ['駅はどこですか', 'eki wa doko desu ka', 'Where is the station?'],
     ['漢字', 'kanji', 'Chinese character / kanji'],
-    ['日本語を勉強しています', 'nihongo o benkyou shite imasu', 'I am studying Japanese'],
+    [
+      '日本語を勉強しています',
+      'nihongo o benkyou shite imasu',
+      'I am studying Japanese',
+    ],
     ['大丈夫です', 'daijoubu desu', 'It is okay'],
   ];
 
@@ -106,7 +110,10 @@ export default async function RomajiPage(_: PageProps) {
               </thead>
               <tbody className='text-(--secondary-color)'>
                 {examples.map(row => (
-                  <tr key={row[0]} className='border-b border-(--border-color)/60'>
+                  <tr
+                    key={row[0]}
+                    className='border-b border-(--border-color)/60'
+                  >
                     <td className='px-2 py-2'>{row[0]}</td>
                     <td className='px-2 py-2 italic'>{row[1]}</td>
                     <td className='px-2 py-2'>{row[2]}</td>
@@ -126,17 +133,23 @@ export default async function RomajiPage(_: PageProps) {
               sanity check on a Japanese line you cannot read fluently yet.
             </p>
             <p>
-              It is much less useful when you need to understand nuance, spelling,
-              or word boundaries. For that, pair romaji with kana, kanji, and a
-              meaning-focused translation page.
+              It is much less useful when you need to understand nuance,
+              spelling, or word boundaries. For that, pair romaji with kana,
+              kanji, and a meaning-focused translation page.
             </p>
           </div>
         </section>
         <div className='mt-8 flex flex-wrap gap-3'>
-          <Link href='/translate' className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'>
+          <Link
+            href='/translate'
+            className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'
+          >
             Open translator hub
           </Link>
-          <Link href='/kana' className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'>
+          <Link
+            href='/kana'
+            className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'
+          >
             Practice kana
           </Link>
         </div>

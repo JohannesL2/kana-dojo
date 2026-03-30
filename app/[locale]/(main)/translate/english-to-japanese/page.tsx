@@ -61,11 +61,23 @@ export default async function EnglishToJapanesePage(_: PageProps) {
     ['Where is the station?', '駅はどこですか？', 'Eki wa doko desu ka?'],
     ['I need help', '助けが必要です', 'Tasuke ga hitsuyo desu'],
     ['How much is this?', 'これはいくらですか？', 'Kore wa ikura desu ka?'],
-    ['Please speak slowly', 'ゆっくり話してください', 'Yukkuri hanashite kudasai'],
+    [
+      'Please speak slowly',
+      'ゆっくり話してください',
+      'Yukkuri hanashite kudasai',
+    ],
     ['Can I pay by card?', 'カードで払えますか？', 'Kaado de haraemasu ka?'],
-    ['I am learning Japanese', '日本語を勉強しています', 'Nihongo o benkyo shite imasu'],
+    [
+      'I am learning Japanese',
+      '日本語を勉強しています',
+      'Nihongo o benkyo shite imasu',
+    ],
     ['Nice to meet you', 'はじめまして', 'Hajimemashite'],
-    ['What does this kanji mean?', 'この漢字はどういう意味ですか？', 'Kono kanji wa do iu imi desu ka?'],
+    [
+      'What does this kanji mean?',
+      'この漢字はどういう意味ですか？',
+      'Kono kanji wa do iu imi desu ka?',
+    ],
   ];
 
   return (
@@ -87,8 +99,12 @@ export default async function EnglishToJapanesePage(_: PageProps) {
           Japanese plus romaji support.
         </p>
         <ul className='mt-6 list-disc space-y-2 pl-5 text-(--secondary-color)'>
-          <li>Best for everyday phrases, study prompts, and quick writing help.</li>
-          <li>Output includes Japanese text and romaji for pronunciation support.</li>
+          <li>
+            Best for everyday phrases, study prompts, and quick writing help.
+          </li>
+          <li>
+            Output includes Japanese text and romaji for pronunciation support.
+          </li>
           <li>Keep English input short and specific for cleaner results.</li>
         </ul>
         <section className='mt-8 rounded-xl border border-(--border-color) bg-(--card-color) p-4'>
@@ -97,14 +113,15 @@ export default async function EnglishToJapanesePage(_: PageProps) {
           </h2>
           <div className='mt-3 space-y-3 text-sm text-(--secondary-color)'>
             <p>
-              Use this route when the final output matters. If you are drafting a
-              travel phrase, checking a sentence for study, or turning an English
-              note into Japanese, this page should be the primary destination.
+              Use this route when the final output matters. If you are drafting
+              a travel phrase, checking a sentence for study, or turning an
+              English note into Japanese, this page should be the primary
+              destination.
             </p>
             <p>
-              For best results, keep the subject clear, avoid idioms when you can,
-              and double-check names, honorifics, and slang before reusing the
-              output in something important.
+              For best results, keep the subject clear, avoid idioms when you
+              can, and double-check names, honorifics, and slang before reusing
+              the output in something important.
             </p>
           </div>
         </section>
@@ -123,7 +140,10 @@ export default async function EnglishToJapanesePage(_: PageProps) {
               </thead>
               <tbody className='text-(--secondary-color)'>
                 {examples.map(row => (
-                  <tr key={row[0]} className='border-b border-(--border-color)/60'>
+                  <tr
+                    key={row[0]}
+                    className='border-b border-(--border-color)/60'
+                  >
                     <td className='px-2 py-2'>{row[0]}</td>
                     <td className='px-2 py-2'>{row[1]}</td>
                     <td className='px-2 py-2 italic'>{row[2]}</td>
@@ -138,19 +158,37 @@ export default async function EnglishToJapanesePage(_: PageProps) {
             Translation tips for better Japanese output
           </h2>
           <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-(--secondary-color)'>
-            <li>Prefer short, direct English over long paragraphs with mixed ideas.</li>
-            <li>Replace vague words like &quot;it&quot; or &quot;that&quot; with the actual noun when possible.</li>
-            <li>Review the Japanese script, not just the romaji, before you copy the result.</li>
+            <li>
+              Prefer short, direct English over long paragraphs with mixed
+              ideas.
+            </li>
+            <li>
+              Replace vague words like &quot;it&quot; or &quot;that&quot; with
+              the actual noun when possible.
+            </li>
+            <li>
+              Review the Japanese script, not just the romaji, before you copy
+              the result.
+            </li>
           </ul>
         </section>
         <div className='mt-8 flex flex-wrap gap-3'>
-          <Link href='/translate' className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'>
+          <Link
+            href='/translate'
+            className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'
+          >
             Open translator hub
           </Link>
-          <Link href='/translate/japanese-to-english' className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'>
+          <Link
+            href='/translate/japanese-to-english'
+            className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'
+          >
             Japanese to English
           </Link>
-          <Link href='/translate/romaji' className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'>
+          <Link
+            href='/translate/romaji'
+            className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'
+          >
             Romaji guide
           </Link>
         </div>

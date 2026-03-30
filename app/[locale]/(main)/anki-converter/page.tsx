@@ -24,8 +24,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const ogLocale = locale === 'es' ? 'es_ES' : 'en_US';
-  const title =
-    'Anki to JSON Converter | Free APKG Converter | KanaDojo';
+  const title = 'Anki to JSON Converter | Free APKG Converter | KanaDojo';
   const description =
     'Convert Anki flashcard decks to JSON format instantly. Supports APKG, TSV, SQLite, and COLPKG files. Free, fast, and completely private - all processing happens in your browser.';
 
@@ -562,7 +561,8 @@ npm run anki:convert -- --help`}
                   English → Japanese Translator
                 </h3>
                 <p className='text-sm'>
-                  Translate English to Japanese with romaji pronunciation support.
+                  Translate English to Japanese with romaji pronunciation
+                  support.
                 </p>
               </Link>
               <Link
@@ -642,4 +642,3 @@ npm run anki:convert -- --help`}
     </>
   );
 }
-

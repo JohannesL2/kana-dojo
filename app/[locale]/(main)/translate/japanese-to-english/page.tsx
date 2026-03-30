@@ -59,13 +59,25 @@ export async function generateMetadata(_: PageProps): Promise<Metadata> {
 export default async function JapaneseToEnglishPage(_: PageProps) {
   const examples = [
     ['おはようございます', 'Good morning', 'Ohayo gozaimasu'],
-    ['よろしくお願いします', 'Please treat me favorably', 'Yoroshiku onegaishimasu'],
+    [
+      'よろしくお願いします',
+      'Please treat me favorably',
+      'Yoroshiku onegaishimasu',
+    ],
     ['本日は晴天なり', 'Today is clear weather', 'Honjitsu wa seiten nari'],
     ['この漢字は難しい', 'This kanji is difficult', 'Kono kanji wa muzukashii'],
     ['電車が遅れています', 'The train is delayed', 'Densha ga okurete imasu'],
-    ['明日の予定を教えてください', 'Please tell me tomorrow’s plan', 'Ashita no yotei o oshiete kudasai'],
+    [
+      '明日の予定を教えてください',
+      'Please tell me tomorrow’s plan',
+      'Ashita no yotei o oshiete kudasai',
+    ],
     ['今何時ですか', 'What time is it now?', 'Ima nanji desu ka'],
-    ['ここで写真を撮ってもいいですか', 'May I take a photo here?', 'Koko de shashin o totte mo ii desu ka'],
+    [
+      'ここで写真を撮ってもいいですか',
+      'May I take a photo here?',
+      'Koko de shashin o totte mo ii desu ka',
+    ],
   ];
 
   return (
@@ -86,9 +98,14 @@ export default async function JapaneseToEnglishPage(_: PageProps) {
           notes, and quick reading support when you want meaning first.
         </p>
         <ul className='mt-6 list-disc space-y-2 pl-5 text-(--secondary-color)'>
-          <li>Useful for subtitles, study notes, names, and reading practice.</li>
+          <li>
+            Useful for subtitles, study notes, names, and reading practice.
+          </li>
           <li>Handles mixed Japanese scripts in one request.</li>
-          <li>Best when you want comprehension support, not polished Japanese output.</li>
+          <li>
+            Best when you want comprehension support, not polished Japanese
+            output.
+          </li>
         </ul>
         <section className='mt-8 rounded-xl border border-(--border-color) bg-(--card-color) p-4'>
           <h2 className='text-xl font-semibold text-(--main-color)'>
@@ -123,7 +140,10 @@ export default async function JapaneseToEnglishPage(_: PageProps) {
               </thead>
               <tbody className='text-(--secondary-color)'>
                 {examples.map(row => (
-                  <tr key={row[0]} className='border-b border-(--border-color)/60'>
+                  <tr
+                    key={row[0]}
+                    className='border-b border-(--border-color)/60'
+                  >
                     <td className='px-2 py-2'>{row[0]}</td>
                     <td className='px-2 py-2'>{row[1]}</td>
                     <td className='px-2 py-2 italic'>{row[2]}</td>
@@ -140,17 +160,28 @@ export default async function JapaneseToEnglishPage(_: PageProps) {
           <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-(--secondary-color)'>
             <li>Names can have multiple valid readings and translations.</li>
             <li>Anime-style phrasing and slang often need extra context.</li>
-            <li>Honorific nuance and omitted subjects may not translate cleanly.</li>
+            <li>
+              Honorific nuance and omitted subjects may not translate cleanly.
+            </li>
           </ul>
         </section>
         <div className='mt-8 flex flex-wrap gap-3'>
-          <Link href='/translate' className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'>
+          <Link
+            href='/translate'
+            className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'
+          >
             Open translator hub
           </Link>
-          <Link href='/translate/english-to-japanese' className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'>
+          <Link
+            href='/translate/english-to-japanese'
+            className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'
+          >
             English to Japanese
           </Link>
-          <Link href='/translate/romaji' className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'>
+          <Link
+            href='/translate/romaji'
+            className='rounded-lg border border-(--border-color) px-4 py-2 font-medium text-(--main-color)'
+          >
             Romaji guide
           </Link>
         </div>

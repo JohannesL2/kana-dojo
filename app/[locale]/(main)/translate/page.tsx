@@ -89,7 +89,10 @@ export default async function TranslatePage(_: TranslatePageProps) {
           id='translator'
         >
           <meta itemProp='name' content='KanaDojo Japanese Translator' />
-          <meta itemProp='applicationCategory' content='EducationalApplication' />
+          <meta
+            itemProp='applicationCategory'
+            content='EducationalApplication'
+          />
           <meta itemProp='operatingSystem' content='Any' />
           <meta
             itemProp='description'
