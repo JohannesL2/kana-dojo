@@ -12,6 +12,7 @@ import { useStatsStore } from '@/features/Progress';
 import { useShallow } from 'zustand/react/shallow';
 import { useStopwatch } from 'react-timer-hook';
 import { useSmartReverseMode } from '@/shared/hooks/game/useSmartReverseMode';
+import { useTilesMode } from '@/shared/hooks/game/useTilesMode';
 import { GameBottomBar } from '@/shared/components/Game/GameBottomBar';
 import FuriganaText from '@/shared/components/text/FuriganaText';
 import AnswerSummary from '@/shared/components/Game/AnswerSummary';
@@ -58,6 +59,15 @@ const KanjiTilesMode = ({
     decideNextMode: decideNextReverseMode,
     recordWrongAnswer: recordReverseModeWrong,
   } = useSmartReverseMode();
+  const {
+    decideNextMode: decideNextTilesCelebrationMode,
+    nextCelebrationMode,
+  } = useTilesMode({
+    minConsecutiveForTrigger: 0,
+    baseProbability: 1,
+    maxProbability: 1,
+    enableAdaptiveWordLength: false,
+  });
 
   // Use external isReverse if provided, otherwise use internal smart mode
   const isReverse = externalIsReverse ?? internalIsReverse;
@@ -334,12 +344,14 @@ const KanjiTilesMode = ({
     if (externalIsReverse === undefined) {
       decideNextReverseMode();
     }
+    decideNextTilesCelebrationMode();
     externalOnCorrect?.([questionData.kanjiChar]);
     resetGame();
   }, [
     playClick,
     externalIsReverse,
     decideNextReverseMode,
+    decideNextTilesCelebrationMode,
     externalOnCorrect,
     questionData.kanjiChar,
     resetGame,
@@ -465,6 +477,7 @@ const KanjiTilesMode = ({
               onTileClick={handleTileClick}
               isTileDisabled={isChecking && bottomBarState !== 'wrong'}
               isCelebrating={isCelebrating}
+              celebrationMode={nextCelebrationMode}
               tilesPerRow={2}
               tileSizeClassName={
                 isReverse ? 'text-3xl sm:text-4xl' : 'text-xl sm:text-2xl'

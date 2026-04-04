@@ -74,6 +74,7 @@ const KanaTilesMode = ({
     wordLength: internalWordLength,
     decideNextMode: decideNextTilesProgression,
     recordWrongAnswer: recordTilesProgressionWrong,
+    nextCelebrationMode,
   } = useTilesMode({
     minConsecutiveForTrigger: 0,
     baseProbability: 1,
@@ -534,6 +535,7 @@ const KanaTilesMode = ({
             onTileClick={handleTileClick}
             isTileDisabled={isChecking && bottomBarState !== 'wrong'}
             isCelebrating={isCelebrating}
+            celebrationMode={nextCelebrationMode}
             tilesPerRow={3}
             tileSizeClassName='text-2xl sm:text-3xl'
             answerRowClassName='flex min-h-[5rem] w-full items-center border-b-2 border-(--border-color) px-2 pb-2 md:w-3/4 lg:w-2/3 xl:w-1/2'

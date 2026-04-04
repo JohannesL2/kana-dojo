@@ -43,6 +43,8 @@ interface TilesModeState {
   wordLength: number;
   /** Correct answers counted toward the next +1 word length step */
   correctSinceLastLengthIncrease: number;
+  /** Celebration mode to use for the next correct-answer event */
+  nextCelebrationMode: 'bounce' | 'explode';
 }
 
 const clamp = (value: number, min: number, max: number): number =>
@@ -67,6 +69,7 @@ const createInitialTilesModeState = ({
     ? minWordLength
     : clamp(initialWordLength, minWordLength, maxWordLength),
   correctSinceLastLengthIncrease: 0,
+  nextCelebrationMode: 'bounce',
 });
 
 /**
@@ -145,6 +148,7 @@ export const useTilesMode = (options: TilesModeOptions = {}) => {
       wordLength: enableAdaptiveWordLength
         ? Math.max(clampedMinWordLength, prev.wordLength - 1)
         : prev.wordLength,
+      nextCelebrationMode: prev.nextCelebrationMode,
     }));
   }, [clampedMinWordLength, enableAdaptiveWordLength]);
 
@@ -181,6 +185,8 @@ export const useTilesMode = (options: TilesModeOptions = {}) => {
             tilesModeStreak: 0,
             correctSinceLastLengthIncrease: resetCorrectSinceIncrease,
             wordLength: newWordLength,
+            nextCelebrationMode:
+              prev.nextCelebrationMode === 'bounce' ? 'explode' : 'bounce',
           };
         }
         return {
@@ -189,6 +195,8 @@ export const useTilesMode = (options: TilesModeOptions = {}) => {
           tilesModeStreak: newTilesModeStreak,
           correctSinceLastLengthIncrease: resetCorrectSinceIncrease,
           wordLength: newWordLength,
+          nextCelebrationMode:
+            prev.nextCelebrationMode === 'bounce' ? 'explode' : 'bounce',
         };
       }
 
@@ -212,6 +220,8 @@ export const useTilesMode = (options: TilesModeOptions = {}) => {
             tilesModeStreak: 0,
             correctSinceLastLengthIncrease: resetCorrectSinceIncrease,
             wordLength: newWordLength,
+            nextCelebrationMode:
+              prev.nextCelebrationMode === 'bounce' ? 'explode' : 'bounce',
           };
         }
       }
@@ -222,6 +232,8 @@ export const useTilesMode = (options: TilesModeOptions = {}) => {
         consecutiveCorrect: newConsecutive,
         correctSinceLastLengthIncrease: resetCorrectSinceIncrease,
         wordLength: newWordLength,
+        nextCelebrationMode:
+          prev.nextCelebrationMode === 'bounce' ? 'explode' : 'bounce',
       };
     });
   }, [
@@ -260,6 +272,7 @@ export const useTilesMode = (options: TilesModeOptions = {}) => {
     wordLength: state.wordLength,
     consecutiveCorrect: state.consecutiveCorrect,
     tilesModeStreak: state.tilesModeStreak,
+    nextCelebrationMode: state.nextCelebrationMode,
     decideNextMode,
     recordWrongAnswer,
     exitTilesMode,

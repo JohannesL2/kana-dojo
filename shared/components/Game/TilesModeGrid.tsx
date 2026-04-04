@@ -8,6 +8,8 @@ import {
   BlankTile,
   celebrationBounceVariants,
   celebrationContainerVariants,
+  celebrationExplodeContainerVariants,
+  celebrationExplodeVariants,
   tileContainerVariants,
   tileEntryVariants,
 } from '@/shared/components/Game/tilesModeShared';
@@ -18,6 +20,7 @@ interface TilesModeGridProps {
   onTileClick: (id: number, char: string) => void;
   isTileDisabled: boolean;
   isCelebrating: boolean;
+  celebrationMode: 'bounce' | 'explode';
   tilesPerRow: number;
   tileSizeClassName: string;
   tileLang?: string;
@@ -32,6 +35,7 @@ const TilesModeGrid = ({
   onTileClick,
   isTileDisabled,
   isCelebrating,
+  celebrationMode,
   tilesPerRow,
   tileSizeClassName,
   tileLang,
@@ -39,6 +43,15 @@ const TilesModeGrid = ({
   tilesContainerClassName,
   tilesWrapperKey,
 }: TilesModeGridProps) => {
+  const celebrationContainerVariantsToUse =
+    celebrationMode === 'explode'
+      ? celebrationExplodeContainerVariants
+      : celebrationContainerVariants;
+  const celebrationTileVariantsToUse =
+    celebrationMode === 'explode'
+      ? celebrationExplodeVariants
+      : celebrationBounceVariants;
+
   const tileEntries = Array.from(allTiles.entries());
   const topRowTiles = tileEntries.slice(0, tilesPerRow);
   const bottomRowTiles = tileEntries.slice(tilesPerRow);
@@ -86,7 +99,7 @@ const TilesModeGrid = ({
         <div className={clsx(answerRowClassName)}>
           <motion.div
             className='flex flex-row flex-wrap justify-start gap-3'
-            variants={celebrationContainerVariants}
+            variants={celebrationContainerVariantsToUse}
             initial='idle'
             animate={isCelebrating ? 'celebrate' : 'idle'}
           >
@@ -100,8 +113,8 @@ const TilesModeGrid = ({
                 isDisabled={isTileDisabled}
                 sizeClassName={tileSizeClassName}
                 lang={tileLang}
-                variants={celebrationBounceVariants}
-                motionStyle={{ transformOrigin: '50% 100%' }}
+                variants={celebrationTileVariantsToUse}
+                motionStyle={{ transformOrigin: '50% 50%' }}
               />
             ))}
           </motion.div>

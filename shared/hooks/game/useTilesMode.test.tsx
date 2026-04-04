@@ -103,4 +103,27 @@ describe('useTilesMode', () => {
     });
     expect(result.current.wordLength).toBe(1);
   });
+
+  it('alternates the celebration mode on each correct answer decision', () => {
+    const { result } = renderHook(() =>
+      useTilesMode({
+        enableAdaptiveWordLength: false,
+        minConsecutiveForTrigger: 0,
+        baseProbability: 1,
+        maxProbability: 1,
+      }),
+    );
+
+    expect(result.current.nextCelebrationMode).toBe('bounce');
+
+    act(() => {
+      result.current.decideNextMode();
+    });
+    expect(result.current.nextCelebrationMode).toBe('explode');
+
+    act(() => {
+      result.current.decideNextMode();
+    });
+    expect(result.current.nextCelebrationMode).toBe('bounce');
+  });
 });

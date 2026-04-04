@@ -111,6 +111,36 @@ export const celebrationBounceVariants = {
   },
 };
 
+export const celebrationExplodeContainerVariants = {
+  idle: {},
+  celebrate: {
+    transition: {
+      staggerChildren: 0.14,
+      delayChildren: 0.06,
+    },
+  },
+};
+
+export const celebrationExplodeVariants = {
+  idle: {
+    y: 0,
+    scale: 1,
+    rotate: 0,
+    opacity: 1,
+  },
+  celebrate: {
+    y: [0, -18, -54, -54, -12, 0],
+    scale: [1, 1.35, 2.15, 0.02, 0.55, 1],
+    rotate: [0, -4, 8, 0, 0, 0],
+    opacity: [1, 0.9, 0, 0, 0.35, 1],
+    transition: {
+      duration: 1.6,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+      times: [0, 0.16, 0.34, 0.52, 0.8, 1],
+    },
+  },
+};
+
 const tileBaseStyles =
   'relative flex items-center justify-center rounded-3xl px-6 sm:px-8 py-3 border-b-10 transition-all duration-150';
 

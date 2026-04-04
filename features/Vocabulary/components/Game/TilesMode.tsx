@@ -14,6 +14,7 @@ import { useStatsStore } from '@/features/Progress';
 import { useShallow } from 'zustand/react/shallow';
 import { useStopwatch } from 'react-timer-hook';
 import { useSmartReverseMode } from '@/shared/hooks/game/useSmartReverseMode';
+import { useTilesMode } from '@/shared/hooks/game/useTilesMode';
 import { GameBottomBar } from '@/shared/components/Game/GameBottomBar';
 import FuriganaText from '@/shared/components/text/FuriganaText';
 import AnswerSummary from '@/shared/components/Game/AnswerSummary';
@@ -72,6 +73,15 @@ const VocabTilesMode = ({
     decideNextMode: decideNextReverseMode,
     recordWrongAnswer: recordReverseModeWrong,
   } = useSmartReverseMode();
+  const {
+    decideNextMode: decideNextTilesCelebrationMode,
+    nextCelebrationMode,
+  } = useTilesMode({
+    minConsecutiveForTrigger: 0,
+    baseProbability: 1,
+    maxProbability: 1,
+    enableAdaptiveWordLength: false,
+  });
 
   // Use external isReverse if provided, otherwise use internal smart mode
   const isReverse = externalIsReverse ?? internalIsReverse;
@@ -464,6 +474,7 @@ const VocabTilesMode = ({
     if (externalIsReverse === undefined) {
       decideNextReverseMode();
     }
+    decideNextTilesCelebrationMode();
     externalOnCorrect?.([questionData.word]);
 
     // Determine next quiz type based on word content
@@ -474,6 +485,7 @@ const VocabTilesMode = ({
     playClick,
     externalIsReverse,
     decideNextReverseMode,
+    decideNextTilesCelebrationMode,
     externalOnCorrect,
     questionData.word,
     resetGame,
@@ -634,6 +646,7 @@ const VocabTilesMode = ({
               onTileClick={handleTileClick}
               isTileDisabled={isChecking && bottomBarState !== 'wrong'}
               isCelebrating={isCelebrating}
+              celebrationMode={nextCelebrationMode}
               tilesPerRow={2}
               tileSizeClassName={
                 isReverse || questionData.quizType === 'reading'
