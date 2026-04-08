@@ -4,7 +4,13 @@ import { Link, usePathname } from '@/core/i18n/routing';
 import { useClick } from '@/shared/hooks/generic/useAudio';
 import { cn } from '@/shared/lib/utils';
 import clsx from 'clsx';
-import { Sparkles, House, BookOpen, type LucideIcon } from 'lucide-react';
+import {
+  Sparkles,
+  House,
+  BookOpen,
+  Library,
+  type LucideIcon,
+} from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { removeLocaleFromPath } from '@/shared/lib/pathUtils';
 import { motion } from 'framer-motion';
@@ -66,7 +72,11 @@ export default function TopBar() {
   }, []);
 
   const navItems: NavItem[] = [
-    { name: 'Academy', href: '/academy', icon: BookOpen },
+    { 
+      name: pathWithoutLocale.startsWith('/resources') ? 'Resources' : 'Academy',
+      href: pathWithoutLocale.startsWith('/resources') ? '/resources' : '/academy',
+      icon: pathWithoutLocale.startsWith('/resources') ? Library : BookOpen
+    },
     { name: 'Kana', href: '/kana', charIcon: 'あ' },
     { name: 'Kanji', href: '/kanji', charIcon: '字' },
     { name: 'Vocab', href: '/vocabulary', charIcon: '語' },
@@ -75,7 +85,11 @@ export default function TopBar() {
 
   const mobileNavItems: NavItem[] = [
     { name: 'Home', href: '/', icon: House },
-    { name: 'Academy', href: '/academy', icon: BookOpen },
+    { 
+      name: pathWithoutLocale.startsWith('/resources') ? 'Resources' : 'Academy',
+      href: pathWithoutLocale.startsWith('/resources') ? '/resources' : '/academy',
+      icon: pathWithoutLocale.startsWith('/resources') ? Library : BookOpen
+    },
     { name: 'Kana', href: '/kana', charIcon: 'あ' },
     { name: 'Vocab', href: '/vocabulary', charIcon: '語' },
     { name: 'Kanji', href: '/kanji', charIcon: '字' },
